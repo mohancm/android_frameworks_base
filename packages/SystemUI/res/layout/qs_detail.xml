@@ -25,19 +25,25 @@
     android:visibility="invisible"
     android:elevation="4dp">
     
-    <LinearLayout
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@*android:dimen/quick_qs_offset_height"
+        android:background="@android:color/transparent" />
+
+    <com.android.keyguard.AlphaOptimizedLinearLayout
         android:id="@+id/qs_detail_base_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="8dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical"
         android:background="@drawable/qs_detail_background">
-    
+
         <include
             android:id="@+id/qs_detail_header"
             layout="@layout/qs_detail_header"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            />
 
         <com.android.systemui.statusbar.AlphaOptimizedImageView
             android:id="@+id/qs_detail_header_progress"
@@ -46,7 +52,8 @@
             android:alpha="0"
             android:background="@color/qs_detail_progress_track"
             android:src="@drawable/indeterminate_anim"
-            android:scaleType="fitXY"/>
+            android:scaleType="fitXY"
+            />
 
         <com.android.systemui.qs.NonInterceptingScrollView
             android:layout_width="match_parent"
@@ -60,8 +67,7 @@
                 android:layout_height="match_parent"/>
         </com.android.systemui.qs.NonInterceptingScrollView>
 
-        <include layout="@layout/qs_detail_buttons"/>
-    
-    </LinearLayout>
+        <include layout="@layout/qs_detail_buttons" />
+    </com.android.keyguard.AlphaOptimizedLinearLayout>
 
 </com.android.systemui.qs.QSDetail>
